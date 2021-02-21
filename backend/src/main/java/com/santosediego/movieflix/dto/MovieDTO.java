@@ -1,13 +1,8 @@
 package com.santosediego.movieflix.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
-import com.santosediego.movieflix.entities.Genre;
 import com.santosediego.movieflix.entities.Movie;
-import com.santosediego.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable {
 
@@ -19,15 +14,12 @@ public class MovieDTO implements Serializable {
 	private Integer year;
 	private String imgUrl;
 	private String synopsis;
-
-	private Genre genre;
-
-	private List<Review> reviews = new ArrayList<>();
+	private Long genreId;
 
 	public MovieDTO() {
 	}
 
-	public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Genre genre) {
+	public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Long genreId) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -35,7 +27,7 @@ public class MovieDTO implements Serializable {
 		this.year = year;
 		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
-		this.genre = genre;
+		this.genreId = genreId;
 	}
 
 	public MovieDTO(Movie entity) {
@@ -46,12 +38,7 @@ public class MovieDTO implements Serializable {
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
-		genre = entity.getGenre();
-	}
-
-	public MovieDTO(Movie entity, Set<Review> reviews) {
-		this(entity);
-		reviews.forEach(review -> reviews.add(new Review(review)));
+		genreId = entity.getGenre().getId();
 	}
 
 	public Long getId() {
@@ -102,19 +89,11 @@ public class MovieDTO implements Serializable {
 		this.synopsis = synopsis;
 	}
 
-	public Genre getGenre() {
-		return genre;
+	public Long getGenreId() {
+		return genreId;
 	}
 
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-
-	public List<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
+	public void setGenreId(Long genreId) {
+		this.genreId = genreId;
 	}
 }
