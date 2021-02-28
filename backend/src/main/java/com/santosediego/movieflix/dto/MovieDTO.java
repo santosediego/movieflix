@@ -1,8 +1,11 @@
 package com.santosediego.movieflix.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.santosediego.movieflix.entities.Movie;
+import com.santosediego.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable {
 
@@ -15,6 +18,8 @@ public class MovieDTO implements Serializable {
 	private String imgUrl;
 	private String synopsis;
 	private Long genreId;
+
+	private List<ReviewDTO> reviews = new ArrayList<>();
 
 	public MovieDTO() {
 	}
@@ -39,6 +44,11 @@ public class MovieDTO implements Serializable {
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
 		genreId = entity.getGenre().getId();
+	}
+
+	public MovieDTO(Movie entity, List<Review> reviews) {
+		this(entity);
+		reviews.forEach(rev -> this.reviews.add(new ReviewDTO(rev)));
 	}
 
 	public Long getId() {
@@ -95,5 +105,13 @@ public class MovieDTO implements Serializable {
 
 	public void setGenreId(Long genreId) {
 		this.genreId = genreId;
+	}
+
+	public List<ReviewDTO> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<ReviewDTO> reviews) {
+		this.reviews = reviews;
 	}
 }
