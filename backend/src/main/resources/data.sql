@@ -5,9 +5,8 @@ INSERT INTO tb_role (authority) VALUES ('ROLE_VISITOR');
 INSERT INTO tb_role (authority) VALUES ('ROLE_MEMBER');
 --INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 
-INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 2);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
 
 INSERT INTO tb_genre (name) VALUES ('Ficção científica');
 INSERT INTO tb_genre (name) VALUES ('Animação');
@@ -28,14 +27,14 @@ INSERT INTO tb_movie (img_url, sub_title, synopsis, title, year, genre_id) VALUE
 
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Incrível esse filme, incrível a história de produção deste filme. James Cameron está de parabéns!!', 1, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Esse filme é um verdadeiro clássico, uma obra prima.', 2, 1);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Cara, não canso de ver esse filmeee. "Come with me if you want to live"', 2, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Cara, não canso de ver esse filmeee. "Come with me if you want to live"', 2, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Carro muito lindoo, mas da muito medo', 3, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Alguém sabe onde consigo uma miniatura desse carro?? Plymouth Fury 1958', 3, 1);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('O melhor filme da sessão da tarde, que saudades', 4, 2);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('RoboCop x ED-209, shoow', 6, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('O melhor filme da sessão da tarde, que saudades', 4, 1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('RoboCop x ED-209, shoow', 6, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Considero esse filme a obra prima da Pixar, robozinho cativante', 7, 1);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Nostalgia em ver esse filme', 8, 2);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Sério, esse filme devia estar na categoria de comédia', 9, 2);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Eu concordo kkkkk', 9, 1);
-INSERT INTO tb_review (text, movie_id, user_id) VALUES ('A série é a melhor que já vi, mesmo tendo todo aquele efeito antigão', 10, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Nostalgia em ver esse filme', 8, 1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Sério, esse filme devia estar na categoria de comédia', 9, 1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Eu acho muito engraçado kkkkk', 9, 1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('A série é a melhor que já vi, mesmo tendo todo aquele efeito antigão', 10, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Que a força estaja com você', 11, 1);

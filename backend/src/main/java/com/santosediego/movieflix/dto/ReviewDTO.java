@@ -10,6 +10,8 @@ public class ReviewDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Long id;
+
 	@NotBlank(message = "Campo obrigatório")
 	private String text;
 	private Long userId;
@@ -18,7 +20,7 @@ public class ReviewDTO implements Serializable {
 	public ReviewDTO() {
 	}
 
-	public ReviewDTO(String text, Long userId, Long movieId) {
+	public ReviewDTO(Long id, String text, Long userId, Long movieId) {
 		super();
 		this.text = text;
 		this.userId = userId;
@@ -26,9 +28,18 @@ public class ReviewDTO implements Serializable {
 	}
 
 	public ReviewDTO(Review entity) {
+		id = entity.getId();
 		text = entity.getText();
 		userId = entity.getUser().getId();
 		movieId = entity.getMovie().getId();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getText() {
