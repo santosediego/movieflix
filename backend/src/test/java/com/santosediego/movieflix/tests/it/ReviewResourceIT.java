@@ -62,7 +62,6 @@ public class ReviewResourceIT {
 		newReviewDTO = new ReviewDTO();
 		newReviewDTO.setText("Good good good");
 		newReviewDTO.setMovieId(1L);
-		//newReviewDTO.getMovie().setId(1L);
 	}
 
 	@Test
