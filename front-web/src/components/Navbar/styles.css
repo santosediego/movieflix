@@ -1,0 +1,35 @@
+.main-nav {
+    height: 68px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 18px !important;
+}
+
+.container h4 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-logout-button {
+    display: none;
+}
+
+.nav-logout-button button {
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.nav-logout-button button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(100, 100, 100, 0.8);
+}
