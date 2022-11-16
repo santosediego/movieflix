@@ -3,7 +3,7 @@
 * {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,4 +13,17 @@ h1, h2, h3, h4, h5, h6 {
 
 a, a:hover {
   text-decoration: none;
+}
+
+.input-base {
+  background: #FEFEFE !important;
+  border: 1px solid #FEFEFE;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #9E9E9E;
+  height: 45px;
+  padding: 12px;
 }
