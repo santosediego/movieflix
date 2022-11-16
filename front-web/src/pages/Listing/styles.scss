@@ -1,0 +1,46 @@
+.listing-container {
+    font-size: 24px;
+    color: #fff;
+    padding: 41px 40px;
+}
+
+.listing-container h1 {
+    font-size: 48px;
+    margin-bottom: 39px;
+}
+
+.listing-container p {
+    margin-bottom: 27px;
+}
+
+.listing-container a {
+    color: #fff;
+}
+
+@media (max-width: 576px) {
+
+    .listing-container h1 {
+        font-size: 40px;
+        margin-bottom: 49px;
+    }
+
+    .listing-container p {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    .listing-container {
+        padding: 12px 15px;
+        font-size: 18px;
+    }
+
+    .listing-container h1 {
+        font-size: 24px;
+        margin-bottom: 49px;
+    }
+
+    .listing-container p {
+        margin-bottom: 12px;
+    }
+}
