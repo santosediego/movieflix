@@ -9,12 +9,12 @@
     margin-bottom: 39px;
 }
 
-.listing-container p {
+.movie-link {
     margin-bottom: 27px;
 }
 
-.listing-container a {
-    color: #fff;
+.listing-container a, a:hover {
+    color: #fff !important;
 }
 
 @media (max-width: 576px) {
@@ -24,7 +24,7 @@
         margin-bottom: 49px;
     }
 
-    .listing-container p {
+    .movie-link {
         margin-bottom: 12px;
     }
 }
@@ -40,7 +40,7 @@
         margin-bottom: 49px;
     }
 
-    .listing-container p {
+    .movie-link {
         margin-bottom: 12px;
     }
 }
