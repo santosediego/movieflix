@@ -1,12 +1,13 @@
 import PrivateRoute from 'components/PrivateRoute';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Router, Switch } from 'react-router-dom';
+import history from 'util/history';
 import Navbar from './components/Navbar';
 import Auth from './pages/Auth';
 import Listing from './pages/Listing';
 
 function Routes() {
     return (
-        <BrowserRouter>
+        <Router history={history}>
             <Navbar />
             <Switch>
                 <Route exact path='/'>
@@ -22,7 +23,7 @@ function Routes() {
                 </PrivateRoute>
                 <Redirect from='*' to='/' exact />
             </Switch>
-        </BrowserRouter>
+        </Router>
     );
 }
 

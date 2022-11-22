@@ -26,7 +26,7 @@ const Login = () => {
     const { setAuthContextData } = useContext(AuthContext);
 
     const location = useLocation<LocationState>();
-    const { from } = location.state || { from: { pathname: '/admin' } };
+    const { from } = location.state || { from: { pathname: '/movies' } };
     const history = useHistory();
 
     const onSubmit = (formData: FormData) => {

@@ -15,10 +15,6 @@
     color: #000;
 }
 
-.nav-logout-button {
-    display: none;
-}
-
 .nav-logout-button button {
     width: 100px;
     height: 30px;
