@@ -1,18 +1,42 @@
 import React from 'react';
+import { AxiosRequestConfig } from 'axios';
 import Button from 'components/Button';
 import { useForm } from 'react-hook-form';
+import { makeRequest } from 'util/requests';
+import { Review } from 'types/review';
 import './styles.css';
 
+type Props = {
+    movieId: string;
+    onInsertReview: (review: Review) => void;
+}
+
 type FormData = {
+    movieId: number,
     text: string
 }
 
-function ReviewForm() {
+function ReviewForm({ movieId, onInsertReview }: Props) {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>();
 
     const onSubmit = (formData: FormData) => {
-        console.log(formData);
+
+        const params: AxiosRequestConfig = {
+            method: 'POST',
+            url: `/reviews`,
+            data: formData,
+            withCredentials: true,
+        };
+    
+        formData.movieId = parseInt(movieId);
+
+        makeRequest(params).then((response) => {
+            setValue('text', '');
+            onInsertReview(response.data);
+        }).catch((error) => {
+            console.log('Erro ao persistir: ', error);
+        });
     }
 
     return (
