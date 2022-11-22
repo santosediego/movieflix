@@ -1,24 +1,49 @@
 
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Button from '../../../components/Button';
 import { useForm } from 'react-hook-form';
+import { makePrivateRequest } from 'util/requests';
+import { saveAuthData } from 'util/storage';
+import { AuthContext } from 'AuthContext';
+import { getTokenData } from 'util/auth';
 import './styles.scss';
 
-type FormState = {
-    username: string;
-    password: string;
+type FormData = {
+    username: string,
+    password: string
 }
 
 const Login = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormState>();
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const [hasError, setHasError] = useState(false);
 
-    const onSubmit = (data: FormState) => {
-        console.log(data);
+    const { setAuthContextData } = useContext(AuthContext);
+
+    const onSubmit = (formData: FormData) => {
+        setHasError(false);
+
+        makePrivateRequest(formData)
+            .then(response => {
+                saveAuthData(response.data);
+                setAuthContextData({
+                    authenticated: true,
+                    tokenData: getTokenData()
+                })
+            })
+            .catch(error => {
+                setHasError(true);
+            })
     }
 
     return (
         <div>
+            {hasError && (
+                <div className="alert alert-danger">
+                    E-mail ou senha invalidos!
+                </div>
+            )}
+
             <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
                 <div className="login-input-email">
                     <input
