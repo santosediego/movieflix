@@ -7,10 +7,15 @@ import { saveAuthData } from 'util/storage';
 import { AuthContext } from 'AuthContext';
 import { getTokenData } from 'util/auth';
 import './styles.scss';
+import { useHistory, useLocation } from 'react-router-dom';
 
 type FormData = {
     username: string,
     password: string
+}
+
+type LocationState = {
+    from: string;
 }
 
 const Login = () => {
@@ -19,6 +24,10 @@ const Login = () => {
     const [hasError, setHasError] = useState(false);
 
     const { setAuthContextData } = useContext(AuthContext);
+
+    const location = useLocation<LocationState>();
+    const { from } = location.state || { from: { pathname: '/admin' } };
+    const history = useHistory();
 
     const onSubmit = (formData: FormData) => {
         setHasError(false);
@@ -30,6 +39,7 @@ const Login = () => {
                     authenticated: true,
                     tokenData: getTokenData()
                 })
+                history.replace(from);
             })
             .catch(error => {
                 setHasError(true);

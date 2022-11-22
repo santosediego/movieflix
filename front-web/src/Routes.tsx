@@ -1,4 +1,4 @@
-import React from 'react';
+import PrivateRoute from 'components/PrivateRoute';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Auth from './pages/Auth';
@@ -12,12 +12,14 @@ function Routes() {
                 <Route exact path='/'>
                     <Auth />
                 </Route>
-                <Route path='/movies' exact>
-                    <Listing />
-                </Route>
-                <Route path='/movies/:movieId'>
-                    <div><p>em desenvolvimento</p></div>
-                </Route>
+                <PrivateRoute path='/movies'>
+                    <Route path='/movies' exact>
+                        <Listing />
+                    </Route>
+                    <Route path='/movies/:movieId'>
+                        <div><p>em desenvolvimento</p></div>
+                    </Route>
+                </PrivateRoute>
                 <Redirect from='*' to='/' exact />
             </Switch>
         </BrowserRouter>
