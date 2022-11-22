@@ -6,8 +6,8 @@ import { makePrivateRequest } from 'util/requests';
 import { saveAuthData } from 'util/storage';
 import { AuthContext } from 'AuthContext';
 import { getTokenData } from 'util/auth';
-import './styles.scss';
 import { useHistory, useLocation } from 'react-router-dom';
+import './styles.scss';
 
 type FormData = {
     username: string,

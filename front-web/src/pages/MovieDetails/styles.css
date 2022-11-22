@@ -1,0 +1,39 @@
+.movie-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.moview-details-title {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.moview-details-title h1 {
+    font-size: 24px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 576px) {
+    .moview-details-title h1 {
+        font-size: 35px;
+    }
+}
+
+@media (min-width: 992px) {
+    .moview-details-title h1 {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .moview-details-title {
+        margin: 25px 0;
+    }
+
+    .moview-details-title h1 {
+        font-size: 48px;
+    }
+}

@@ -1,0 +1,20 @@
+.card-review {
+    width: 100%;
+    padding: 20px 10px;
+}
+
+.btn-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.btn-submit button {
+    max-width: 335px;
+}
+
+@media (min-width: 1200px) {
+    .card-review {
+        padding: 25px 15px;
+    }
+}

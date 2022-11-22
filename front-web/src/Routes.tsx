@@ -1,4 +1,5 @@
 import PrivateRoute from 'components/PrivateRoute';
+import MovieDetails from 'pages/MovieDetails';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import history from 'util/history';
 import Navbar from './components/Navbar';
@@ -18,7 +19,7 @@ function Routes() {
                         <Listing />
                     </Route>
                     <Route path='/movies/:movieId'>
-                        <div><p>em desenvolvimento</p></div>
+                        <MovieDetails />
                     </Route>
                 </PrivateRoute>
                 <Redirect from='*' to='/' exact />

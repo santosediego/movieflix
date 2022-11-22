@@ -1,8 +1,8 @@
 import React from 'react';
+import Login from './Login';
 import './styles.scss';
 
 import { ReactComponent as AuthImage } from 'assets/images/auth.svg';
-import Login from './Login';
 
 const Auth = () => (
     <div className="auth-container">
@@ -16,7 +16,7 @@ const Auth = () => (
             <AuthImage />
         </div>
         <div className="auth-content">
-            <div className="auth-card">
+            <div className="card-base auth-card">
                 <h1 className="auth-card-title">Login</h1>
                 <Login />
             </div>
