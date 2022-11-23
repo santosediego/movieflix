@@ -1,38 +1,19 @@
-.login-form{
-    margin-top: 35px;
-    width: 100%;
+.login-input-email{
+    margin-bottom: 20px;
 }
 
-.login-input-email {
-    margin-bottom: 30px;
+.login-submit button {
+    margin-top: 55px;
+    height: 50px;
 }
 
-.login-submit {
-    margin-top: 74px;
-    margin-bottom: 35px;
-}
-
-.not-registered {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-    letter-spacing: -0.015em;
-    color: #9E9E9E;
-}
-
-@media (max-width: 576px) {
-    .login-form {
-        margin-top: 35px;
+@media (min-width: 576px) {
+    .login-input-email{
+        margin-bottom: 30px;
     }
 
-    .login-submit {
-        margin-top: 74px;
-    }
-}
-
-@media (max-width: 320px) {
-    .login-submit {
-        margin-top: 54px;
+    .login-submit button {
+        margin-top: 75px;
+        height: 65px;
     }
 }

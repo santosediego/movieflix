@@ -10,7 +10,7 @@ const Auth = () => (
             <h1 className="auth-info-title">
                 Avalie Filmes
             </h1>
-            <p className="auth-into-subtitle">
+            <p className="auth-info-subtitle">
                 Diga o que você achou do seu<br />filme favorito
             </p>
             <AuthImage />
