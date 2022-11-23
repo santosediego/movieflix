@@ -1,9 +1,9 @@
 # MovieFlix
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/santosediego/movieflix/blob/main/LICENSE) 
 
-# Sobre o projeto
+## Sobre o projeto
 
-MovieFlix é uma aplicação avaliativa do curso Bootcamp [DevSuperior](http://devsuperior.com/ "Página principal da DevSuperior"). O projeto foi divido em 3 etapas para entrega, o backend, a aplicação web e a aplicação mobile.
+MovieFlix é uma aplicação avaliativa do curso Bootcamp [DevSuperior](http://devsuperior.com/ "Página principal da DevSuperior").
 
 A correção do trabalho se dará pela conferência no projeto publicado no GitHub, a conferência da estrutura do código, boas práticas e testes automatizados fornecidos.
 
@@ -18,7 +18,7 @@ Ao selecionar um filme da listagem, é mostrada uma página de detalhes, onde é
 
 Um usuário possui nome, email e senha, sendo que o email é seu nome de usuário. Cada filme possui um título, subtítulo, uma imagem, ano de lançamento, sinopse, e um gênero. Os usuários membros podem registrar avaliações para os filmes. Um mesmo usuário membro pode deixar mais de uma avaliação para o mesmo filme.
 
-## Modelo conceitual
+### Modelo conceitual
 ![Modelo Conceitual](https://github.com/santosediego/assets/blob/main/movieFlix/movieFlix_modelo_conceitual.png)
 
 ## Casos de uso
@@ -41,21 +41,28 @@ Exceção 3.1 - Texto vazio
 3.1.1. O sistema apresenta uma mensagem de que não é permitido texto vazio na avaliação
 ```
 
-# Tecnologias utilizadas
-## Back end
+## Tecnologias utilizadas
+### Back-end
 - Java
 - Spring Boot
 - JPA / Hibernate
 - Maven
 - Oauth2
 - Swagger
+### Front-end
+- HTML, CSS, JS, TypeScript
+- ReactJS
+- Axios
+- Bootstrap, Saas
+- React Router
+- React Hook Form
 ## Implantação em produção
-- Back end: Heroku
+- Back-end: Heroku
 - Banco de dados: Postgresql
 
-# Como executar o projeto
+## Como executar o projeto
 
-## Back end
+### Back-end
 Pré-requisitos: Java 11
 
 ```bash
@@ -68,7 +75,23 @@ cd backend
 # executar o projeto
 ./mvnw spring-boot:run
 ```
+### Front-end
+Pré-requisitos: npm / yarn
 
-# Autor
+```bash
+# clonar repositório
+git clone https://github.com/santosediego/movieflix.git
+
+# entrar na pasta do projeto front web
+cd front-web
+
+# instalar dependências
+yarn install
+
+# executar o projeto
+yarn start
+```
+
+## Autor
 
 [Diego Santos](https://www.linkedin.com/in/santosediego/ "Perfil Linkedin Diego Santos")
