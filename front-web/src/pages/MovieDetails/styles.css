@@ -1,39 +1,127 @@
 .movie-details-container {
     display: flex;
     flex-direction: column;
-}
-
-.moview-details-title {
-    width: 100%;
-    justify-content: flex-start;
-}
-
-.moview-details-title h1 {
-    font-size: 24px;
-    letter-spacing: -0.015em;
     color: #FFFFFF;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    max-width: 1200px;
+}
+
+.movie-details-card {
+    width: 100%;
+    margin: 20px 0 25px 0;
+    padding: 20px;
+    border-radius: 10px !important; /* as prototype */
+}
+
+.movie-details-img img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.movie-details-info h3 {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+}
+
+.movie-details-info span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.015em;
+    color: #FFC700;
+}
+
+.movie-details-info p {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+}
+
+.movie-details-description {
+    padding: 10px;
+    border: 1px solid #E1E1E1;
+    border-radius: 10px;
+}
+
+.movie-details-description p {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    color: #9E9E9E;
 }
 
 @media (min-width: 576px) {
-    .moview-details-title h1 {
-        font-size: 35px;
+    .movie-details-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .movie-details-card {
+        padding: 40px;
+    }
+
+    .movie-details-info h3 {
+        font-size: 36px;
+    }
+
+    .movie-details-info span {
+        font-size: 24px;
+    }
+
+    .movie-details-info p {
+        font-size: 24px;
+        margin-bottom: 0;
+    }
+
+    .movie-details-description {
+        margin-top: 40px;
+    }
+
+    .movie-details-description p {
+        font-size: 18px;
     }
 }
 
 @media (min-width: 992px) {
-    .moview-details-title h1 {
-        font-size: 40px;
+    .movie-details-img {
+        display: flex;
+        justify-content: center;
+    }
+
+    .movie-details-img img {
+        max-width: 608px;
+        height: auto;
+    }
+
+    .movie-details-description {
+        padding: 20px;
     }
 }
 
 @media (min-width: 1200px) {
-    .moview-details-title {
-        margin: 25px 0;
+    .movie-details-card {
+        display: flex;
     }
 
-    .moview-details-title h1 {
-        font-size: 48px;
+    .movie-details-img {
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    .movie-details-img img {
+        width: auto;
+        height: auto;
+        max-height: 315px;
+    }
+
+    .movie-details-info {
+        flex: 1;
+        margin-left: 40px;
+    }
+
+    .movie-details-description {
+        margin-top: 15px;
+        padding: 15px 20px;
     }
 }
