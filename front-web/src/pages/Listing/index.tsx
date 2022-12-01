@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Search from 'components/Search';
+import Search, { MovieFilterData } from 'components/Search';
 import MovieCard from 'components/MovieCard';
 import { SpringPage } from 'types/vendor/spring';
 import { Movie } from 'types/movie';
@@ -11,13 +11,15 @@ import './styles.css';
 
 type ControlComponentsData = {
     activePage: number;
+    filterGenre: MovieFilterData;
 }
 
 function Listing() {
 
     const [page, setPage] = useState<SpringPage<Movie>>();
     const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
-        activePage: 0
+        activePage: 0,
+        filterGenre: {genre: null},
     });
 
     const getMovies = useCallback(() => {
@@ -27,6 +29,7 @@ function Listing() {
             withCredentials: true,
             params: {
                 page: controlComponentsData.activePage,
+                genreId: controlComponentsData.filterGenre.genre?.id,
                 linesPerPage: 4,
                 direction: 'ASC',
                 orderBy: 'title',
@@ -47,14 +50,19 @@ function Listing() {
 
     const handlePageChange = (pageNumber: number) => {
         setControlComponentsData({
-            activePage: pageNumber
+            activePage: pageNumber,
+            filterGenre: controlComponentsData.filterGenre,
         })
     };
+
+    const handleSubmitFilter = (data: MovieFilterData) => {
+        setControlComponentsData({activePage: 0, filterGenre: data})
+    }
 
     return (
         <div className="listing-diplay-area">
             <div className='listing-container'>
-                <Search />
+                <Search onSubmitFilter={handleSubmitFilter} />
                 <div className='row listing-content'>
                     {page?.content.map((movie) => (
                         <div key={movie.id} className="col-sm-6 col-xl-3 mb-3">

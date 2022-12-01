@@ -10,22 +10,39 @@
     margin-bottom: 20px;
 }
 
-.search-form{
+.search-form {
     width: 260px;
     padding: 0 20px;
 }
 
-.search-genre-selector {
+.search-genre-selector__control {
     height: 50px;
     width: 100%;
-    padding-left: 12px;
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
-    background-color: unset;
-    font-weight: 400;
+    background-color: unset !important;
+    border: 1px solid #E1E1E1 !important;
+    border-radius: 4px !important;
+    color: #FFFFFF !important;
+}
+
+.search-genre-selector__single-value,
+.search-genre-selector__indicators,
+.search-genre-selector__input {
     font-size: 16px;
     letter-spacing: -0.015em;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
+}
+
+.search-genre-selector__placeholder {
+    color: #BEBDBD !important;
+}
+
+.search-genre-selector__dropdown-indicator,
+.search-genre-selector__clear-indicator {
+    color: #cccccc !important;
+}
+
+.search-genre-selector__indicator-separator {
+    display: none;
 }
 
 @media (min-width: 768px) {
