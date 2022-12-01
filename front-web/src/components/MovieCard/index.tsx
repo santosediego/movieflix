@@ -1,8 +1,6 @@
 import React from 'react';
-import './styles.css';
-
-import MovieImg from 'assets/images/exemple.png';
 import { Movie } from 'types/movie';
+import './styles.css';
 
 type Props = {
     movie: Movie;

@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Search from 'components/Search';
 import MovieCard from 'components/MovieCard';
 import { SpringPage } from 'types/vendor/spring';
 import { Movie } from 'types/movie';
 import { AxiosRequestConfig } from 'axios';
 import { makeRequest } from 'util/requests';
-import './styles.css';
 import { Link } from 'react-router-dom';
+import Pagination from 'components/Pagination';
+import './styles.css';
+
+type ControlComponentsData = {
+    activePage: number;
+}
 
 function Listing() {
 
     const [page, setPage] = useState<SpringPage<Movie>>();
+    const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
+        activePage: 0
+    });
 
-    useEffect(() => {
-        getMovies(0);
-    }, []);
-
-    const getMovies = (pageNumber: number) => {
+    const getMovies = useCallback(() => {
         const params: AxiosRequestConfig = {
             method: 'GET',
             url: `/movies`,
             withCredentials: true,
             params: {
-                page: pageNumber,
+                page: controlComponentsData.activePage,
                 linesPerPage: 4,
                 direction: 'ASC',
                 orderBy: 'title',
@@ -35,6 +39,16 @@ function Listing() {
             }).catch(error => (
                 console.log(error)
             ));
+    }, [controlComponentsData]);
+
+    useEffect(() => {
+        getMovies();
+    }, [getMovies]);
+
+    const handlePageChange = (pageNumber: number) => {
+        setControlComponentsData({
+            activePage: pageNumber
+        })
     };
 
     return (
@@ -50,6 +64,12 @@ function Listing() {
                         </div>
                     ))}
                 </div>
+                <Pagination
+                    forcePage={page?.number}
+                    pageCount={(page) ? page?.totalPages : 0}
+                    range={3}
+                    onChange={handlePageChange}
+                />
             </div>
         </div>
     );
