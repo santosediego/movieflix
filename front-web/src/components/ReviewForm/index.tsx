@@ -4,6 +4,7 @@ import Button from 'components/Button';
 import { useForm } from 'react-hook-form';
 import { makeRequest } from 'util/requests';
 import { Review } from 'types/review';
+import { toast } from 'react-toastify';
 import './styles.css';
 
 type Props = {
@@ -28,14 +29,15 @@ function ReviewForm({ movieId, onInsertReview }: Props) {
             data: formData,
             withCredentials: true,
         };
-    
+
         formData.movieId = parseInt(movieId);
 
         makeRequest(params).then((response) => {
+            toast.success('Avaliação salva com sucesso!');
             setValue('text', '');
             onInsertReview(response.data);
         }).catch((error) => {
-            console.log('Erro ao persistir: ', error);
+            toast.error('Erro ao persistir avaliação.');
         });
     }
 

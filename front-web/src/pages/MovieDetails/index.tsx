@@ -7,6 +7,7 @@ import { makeRequest } from 'util/requests';
 import { hasAnyRole } from 'util/auth';
 import { Movie } from 'types/movie';
 import { Review } from 'types/review';
+import { toast } from 'react-toastify';
 import './styles.css';
 
 type UrlParams = {
@@ -31,7 +32,7 @@ function MovieDetails() {
             setMovie(response.data)
             setReviews(response.data.reviews);
         }).catch((error) => {
-            console.log(error);
+            toast.error('Erro ao carregar dados do filme.');
         });
     }, [movieId]);
 

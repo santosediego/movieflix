@@ -7,6 +7,7 @@ import { AxiosRequestConfig } from 'axios';
 import { makeRequest } from 'util/requests';
 import { Link } from 'react-router-dom';
 import Pagination from 'components/Pagination';
+import { toast } from 'react-toastify';
 import './styles.css';
 
 type ControlComponentsData = {
@@ -19,7 +20,7 @@ function Listing() {
     const [page, setPage] = useState<SpringPage<Movie>>();
     const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
         activePage: 0,
-        filterGenre: {genre: null},
+        filterGenre: { genre: null },
     });
 
     const getMovies = useCallback(() => {
@@ -40,7 +41,7 @@ function Listing() {
             .then(response => {
                 setPage(response.data);
             }).catch(error => (
-                console.log(error)
+                toast.error('Erro ao listar filmes')
             ));
     }, [controlComponentsData]);
 
@@ -56,7 +57,7 @@ function Listing() {
     };
 
     const handleSubmitFilter = (data: MovieFilterData) => {
-        setControlComponentsData({activePage: 0, filterGenre: data})
+        setControlComponentsData({ activePage: 0, filterGenre: data })
     }
 
     return (
