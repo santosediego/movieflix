@@ -5,10 +5,9 @@ import ReviewListing from 'components/ReviewListing';
 import { useParams } from 'react-router-dom';
 import { makeRequest } from 'util/requests';
 import { hasAnyRole } from 'util/auth';
+import { Movie } from 'types/movie';
 import { Review } from 'types/review';
 import './styles.css';
-
-import MovieImg from 'assets/images/exemple.png';
 
 type UrlParams = {
     movieId: string;
@@ -18,6 +17,7 @@ function MovieDetails() {
 
     const { movieId } = useParams<UrlParams>();
 
+    const [movie, setMovie] = useState<Movie>();
     const [reviews, setReviews] = useState<Review[]>([]);
 
     useEffect(() => {
@@ -28,6 +28,7 @@ function MovieDetails() {
         };
 
         makeRequest(params).then((response) => {
+            setMovie(response.data)
             setReviews(response.data.reviews);
         }).catch((error) => {
             console.log(error);
@@ -45,23 +46,14 @@ function MovieDetails() {
 
             <div className="card-base movie-details-card">
                 <div className="movie-details-img">
-                    <img src={MovieImg} alt="Nome do filme" />
+                    <img src={movie?.imgUrl} alt={`${movie?.title}`} />
                 </div>
                 <div className="movie-details-info">
-                    <h3>O Retorno do Rei</h3>
-                    <span>2013</span>
-                    <p>O olho do inimigo está se movendo.</p>
+                    <h3>{movie?.title}</h3>
+                    <span>{movie?.year}</span>
+                    <p>{movie?.subTitle}</p>
                     <div className="movie-details-description">
-                        <p>
-                            O confronto final entre as forças do bem e do mal que lutam pelo
-                            controle do futuro da Terra Média se aproxima. Sauron planeja um
-                            grande ataque a Minas Tirith, capital de Gondor, o que faz com que
-                            Gandalf e Pippin partam para o local na intenção de ajudar a
-                            resistência. Um exército é reunido por Theoden em Rohan, em mais
-                            uma tentativa de deter as forças de Sauron. Enquanto isso, Frodo,
-                            Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para
-                            destruir o anel.
-                        </p>
+                        <p>{movie?.synopsis}</p>
                     </div>
                 </div>
             </div>
