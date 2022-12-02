@@ -56,6 +56,9 @@ Exceção 3.1 - Texto vazio
 - Bootstrap, Saas
 - React Router
 - React Hook Form
+- React Select
+- React Paginate
+- React Toastify
 ## Implantação em produção
 - Back-end: Heroku
 - Banco de dados: Postgresql
