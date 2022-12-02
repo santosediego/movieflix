@@ -1,11 +1,11 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from '../../../components/Button';
 import { useForm } from 'react-hook-form';
 import { makePrivateRequest } from 'util/requests';
 import { saveAuthData } from 'util/storage';
 import { AuthContext } from 'AuthContext';
-import { getTokenData } from 'util/auth';
+import { getTokenData, isAuthenticated } from 'util/auth';
 import { useHistory, useLocation } from 'react-router-dom';
 import './styles.scss';
 
@@ -28,6 +28,10 @@ const Login = () => {
     const location = useLocation<LocationState>();
     const { from } = location.state || { from: { pathname: '/movies' } };
     const history = useHistory();
+
+    useEffect(() => {
+        if(isAuthenticated()) history.push('/movies');
+    }, [history]);
 
     const onSubmit = (formData: FormData) => {
         setHasError(false);
