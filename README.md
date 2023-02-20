@@ -1,5 +1,6 @@
 # MovieFlix
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/santosediego/movieflix/blob/main/LICENSE) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/santosediego/movieflix/blob/main/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/50f39ff8-4866-4a9f-9e39-8adf0e0e3c7a/deploy-status)](https://app.netlify.com/sites/movieflixdiegosantos/deploys)
 
 ## Sobre o projeto
 
